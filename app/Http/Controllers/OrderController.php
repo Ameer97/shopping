@@ -3,22 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Item;
-use App\User;
+use App\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class OrderController extends Controller
 {
-    function createNewOrder()
-    {
-        $user = User::get(['id', 'name']);
-        $item = Item::all();
-        $data = [
-            "users" => $user,
-            "items" => $item,
-        ];
-
-        return view('order.create', $data);
-    }
 
     function storeNew(Request $request)
     {
@@ -44,9 +35,33 @@ class OrderController extends Controller
 
 
         } catch (\Exception $e) {
-            return "<h1>you didn't add any item</h1>";
+            return view('user.exception');
         }
 
         return view('user.cart', $data);
+    }
+
+    function cart()
+    {
+        $itemsRequest = Session::pull(0);
+
+        try {
+            $toOrder["user_id"] = Auth::id();
+            $toPivotTable = $itemsRequest;
+
+            Order::create($toOrder)->items()->sync($toPivotTable);
+
+            for ($i = 0; $i < count($itemsRequest); $i++) {
+                $item = Item::where('id', $itemsRequest[$i]['item_id']);
+                $item->update(array('quantity' => $items = Item::where('id', $itemsRequest[$i]['item_id'])
+                        ->value('quantity') - $itemsRequest[$i]['quantity_order']));
+
+            }
+        } catch (\Exception $e) {
+            return "you didn't choose any item";
+        }
+
+        return redirect('/user');
+
     }
 }

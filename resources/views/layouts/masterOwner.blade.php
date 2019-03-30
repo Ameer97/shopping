@@ -4,6 +4,7 @@
     <!-- Nav -->
     <nav id="menu">
         <ul class="links">
+            <title>Owner</title>
             <li><a href="/">Home</a></li>
             <li><a href="/dashboard/items">items</a></li>
             <li><a href="/dashboard/categories">categories</a></li>

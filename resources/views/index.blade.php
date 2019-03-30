@@ -63,7 +63,7 @@
                 <section>
                     <div class="content">
                         <header>
-                            <a href="/user/" class="icon fa-files-o"><span class="label">Icon</span></a>
+                            <a href="/user" class="icon fa-files-o"><span class="label">Icon</span></a>
                             <h3>Login/Register User</h3>
                         </header>
 
@@ -73,7 +73,7 @@
                 <section>
                     <div class="content">
                         <header>
-                            <a href="http://github.com/ameer97" class="icon fa-github"><span class="label">Icon</span></a>
+                            <a target="_blank" href="https://github.com/Ameer97/shopping" class="icon fa-github"><span class="label">Icon</span></a>
                             <h3>Full Project on Github</h3>
                         </header>
 

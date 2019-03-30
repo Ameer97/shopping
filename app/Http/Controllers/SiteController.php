@@ -49,7 +49,7 @@ class SiteController extends Controller
         return view('owner.index');
     }
 
-    function posts()
+    function items()
     {
         $item = Item::all();
         $response = [

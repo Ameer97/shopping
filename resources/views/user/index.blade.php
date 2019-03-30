@@ -32,7 +32,7 @@
 
                         </div>
                         {{--action="/order/create/new--}}
-                        <form action="/order/create/new" method="post">
+                        <form action="/user/cart" method="post">
                             @csrf
 
                             <input placeholder="Search here" type="text" v-model="search">

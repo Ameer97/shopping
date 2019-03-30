@@ -19,7 +19,7 @@
                 <header>
                     <h2>items</h2>
 
-                    <a href="/dashboard/create">
+                    <a href="/dashboard/items/create">
                         <button type="button" class="btn btn-primary">Create</button>
                     </a>
                 </header>

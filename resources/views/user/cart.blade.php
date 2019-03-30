@@ -30,7 +30,7 @@
                         <h2>Cart</h2>
                     </header>
                     <div class="col-8" id="item">
-                        <div class="row justify-content-between">
+                        <div class="row justify-content-center">
 
                             <div class="wrapper">
 
@@ -65,10 +65,10 @@
                                     <div class="row justify-content-center">
                                         <div class="col">
                                             <h3>Order Price : {{$totalPrice}} $</h3>
-                                            <form action="/user/cart" method="post">
+                                            <form action="/user/cart/order" method="post">
                                                 @csrf
                                                 <button class="icon fa-cart-arrow-down" type="submit">Buy</button>
-                                                <button class="icon fa-window-close" onclick="goBack()">Cancel</button>
+                                                <button class="icon fa-window-close" type="button" onclick="goBack()">Cancel</button>
                                             </form>
 
                                         </div>

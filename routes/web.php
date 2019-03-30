@@ -28,21 +28,16 @@ Route::get('/user/logout', 'UserLoginController@logout');
 
 //for Gust user
 Route::get('/','SiteController@siteGust');
-
+Route::get('/home/items','SiteController@items');
 Route::get('/user/register', 'UserController@register');
 Route::post('/user/register', 'UserController@store');
-
-Route::get('/home/items','SiteController@posts');
 
 
 //only loggedIn User
 route::group(["middleware" => "auth:user"], function () {
     Route::get('/user','SiteController@siteUser');
-    Route::post('/user/cart','CartController@cart');
-
-    Route::get('/order/create', 'OrderController@createNewOrder');
-    Route::post('/order/create/new', 'OrderController@storeNew');
-
+    Route::post('/user/cart/order','OrderController@cart');
+    Route::post('/user/cart', 'OrderController@storeNew');
     Route::get('/user/dataJson','SiteController@dataJson');
 
 });
